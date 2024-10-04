@@ -2,7 +2,10 @@
     background-color: rgb(245, 240, 230);
     display: inline-block;
     width: 100%;
-    scroll-margin-top: 16px;
+}
+
+.sec1 h2 {
+    scroll-margin-top: 80px;
 }
 
 .sec1 p {
@@ -13,11 +16,13 @@
     background-image: url("https://www.ucsd.edu/_resources/img/bg-orbs-1.jpg");
     display: inline-block;
     width: 100%;
-    scroll-margin-top: 16px;
+    scroll-snap-align: start;
+    scroll-margin-top: 40px;
 }
 
 .sec2 h2 {
     color: white;
+    scroll-margin-top: 80px;
 }
 
 .sec2 p {
@@ -32,7 +37,7 @@ menu {
     overflow: hidden;
     position: sticky;
     top: 0;
-    max-width: 400px;
+    max-width: 600px;
 }
 
 menu li {
@@ -55,7 +60,13 @@ menu li a:hover {
 }
 
 .sec3 {
+    background-color: rgb(245, 240, 230);
+    display: inline-block;
     scroll-margin-top: 16px;
+}
+
+.sec3 h2 {
+    scroll-margin-top: 80px;
 }
 
 .griddy {
