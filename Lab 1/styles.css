@@ -1,3 +1,7 @@
+.logo {
+    max-width: 100%;
+}
+
 .sec1 {
     background-color: rgb(245, 240, 230);
     display: inline-block;
@@ -12,12 +16,20 @@
     font-size: 28px;
 }
 
+.sec1 .triton {
+    max-width: 100%;
+}
+
 .sec2 {
     background-image: url("https://www.ucsd.edu/_resources/img/bg-orbs-1.jpg");
     display: inline-block;
     width: 100%;
     scroll-snap-align: start;
     scroll-margin-top: 40px;
+}
+
+.sec2 .colleges {
+    max-width: 100%;
 }
 
 .sec2 h2 {
@@ -37,7 +49,7 @@ menu {
     overflow: hidden;
     position: sticky;
     top: 0;
-    max-width: 600px;
+    max-width: 500px;
 }
 
 menu li {
@@ -95,6 +107,9 @@ menu li a:hover {
     background-color: #182b49;
     color: white;
     font-size: 28px;
+    max-height: 500px;
+    overflow-y: auto; 
+    overflow-x: hidden; 
 }
 
 .logo {
@@ -107,4 +122,65 @@ menu li a:hover {
 
 .colleges {
     max-width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    menu {
+        display: none;
+    }
+
+    .logo {
+        max-width: 75%;
+    }
+
+    .sec1 h2 {
+        font-size: 24px;
+    }
+
+    .sec2 h2 {
+        font-size: 24px;
+    }
+
+    .sec3 h2 {
+        font-size: 24px;
+    }
+
+    .sec1 p {
+        font-size: 20px;
+    }
+
+    .sec2 p {
+        font-size: 20px;
+    }
+
+    .griddy {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .griddy .uno {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 20px;
+    }
+    
+    .griddy .dos {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 20px;
+    }
+    
+    .griddy .thres {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: 20px;
+
+    }
+    
+    .griddy .quatro {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 20px;
+    }
 }
