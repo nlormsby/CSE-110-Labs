@@ -3,6 +3,8 @@ document.getElementById("userForm").addEventListener("submit", function (event) 
 
     // Get the input values
     const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
+    const label = document.getElementById("notel").value;
 
     // Check title length
     if (title.length > 50) {
@@ -13,7 +15,9 @@ document.getElementById("userForm").addEventListener("submit", function (event) 
     else {
         const resultDiv = document.getElementById("result");
         resultDiv.innerHTML = `<h3>Submitted Information</h3>
-                               <p>Title: ${title}</p>`; 
+                               <p>Title: ${title}</p>
+                               <p>Content: ${content}</p>
+                               <p>Label: ${label}</p>`; 
     }
 });
 
