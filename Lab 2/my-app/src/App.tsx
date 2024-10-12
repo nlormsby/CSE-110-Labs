@@ -1,8 +1,12 @@
 import './App.css';
 import { Label, Note } from "./types"; // Import the Label type from the appropriate module
 import { dummyNotesList } from "./constants"; // Import the dummyNotesList from the appropriate module
+import {ClickCounter, ToggleHeart} from "./hooksExercise";
+import React, { useState, useEffect, useContext } from 'react';
+
 
 function App() {
+  const [heartList, setHeart] = useState<string[]>([]);
  return (
    <div className='app-container'>
     <form className="note-form">
@@ -18,6 +22,7 @@ function App() {
            key={note.id}
            className="note-item">
            <div className="notes-header">
+            <ToggleHeart/>
              <button>x</button>
            </div>
            <h2> {note.title} </h2>
