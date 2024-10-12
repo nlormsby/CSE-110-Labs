@@ -84,8 +84,11 @@ const createNoteHandler = (event: React.FormEvent) => {
        ))}
      </div>
      <div>
+      <h2>
+        List of favorites:
+      </h2>
       <p>
-        {heartList}
+        {heartList.map(text => <p>{text}</p>)}
       </p>
      </div>
      <div>
