@@ -2,6 +2,7 @@ import "./App.css";
 import { ToDoList } from "./toDoList";
 import { Route, Routes } from "react-router-dom";
 import { StickyNotes } from "./stickyNotes";
+import { Navbar } from "./navbar";
 
 const App = () => {
  return (
