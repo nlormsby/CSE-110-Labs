@@ -7,6 +7,7 @@ import { Navbar } from "./navbar";
 const App = () => {
  return (
    <div>
+     <Navbar />
      <Routes>
        <Route path="/" element={<StickyNotes />} />
        <Route path="/todolist" element={<ToDoList />} />
