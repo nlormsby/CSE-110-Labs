@@ -36,6 +36,7 @@ export function ClickCounter() {
 }
 
 // Wrapper component to provide context
+
 interface chair{
     leg:{
       foreground: string;
