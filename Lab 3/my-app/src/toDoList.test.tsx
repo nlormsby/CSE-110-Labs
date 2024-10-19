@@ -8,7 +8,7 @@ describe("ToDoList Tests", () => {
         const A = screen.getByTestId("Apples");
         const B = screen.getByTestId("Bananas");
 
-        expect(A).toBeInTheDocument();
+        expect(A).toBeInTheDocument(),
         expect(B).toBeInTheDocument();
     });
 
