@@ -7,8 +7,9 @@ import { ThemeContext, themes } from "./themeContext";
 export const StickyNotes = () => {
     
     // your code from App.tsx
-    const [heartList, setHeart] = useState<string[]>([]);
+  const [heartList, setHeart] = useState<string[]>([]);
   const [currentTheme, setCurrentTheme] = useState(themes.light);
+
   const [notes, setNotes] = useState(dummyNotesList); 
   const initialNote = {
     id: -1,
@@ -16,16 +17,18 @@ export const StickyNotes = () => {
     content: "",
     label: Label.other,
   };
+  
+
+  const [createNote, setCreateNote] = useState(initialNote);
+  const createNoteHandler = (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log("title: ", createNote.title);
+    console.log("content: ", createNote.content);
+    createNote.id = notes.length + 1;
+    setNotes([createNote, ...notes]);
+    setCreateNote(initialNote);
+  };
   const [selectedNote, setSelectedNote] = useState<Note>(initialNote);
-const [createNote, setCreateNote] = useState(initialNote);
-const createNoteHandler = (event: React.FormEvent) => {
-  event.preventDefault();
-  console.log("title: ", createNote.title);
-  console.log("content: ", createNote.content);
-  createNote.id = notes.length + 1;
-  setNotes([createNote, ...notes]);
-  setCreateNote(initialNote);
-};
 
  return (
   <ThemeContext.Provider value={currentTheme}>
@@ -42,6 +45,7 @@ const createNoteHandler = (event: React.FormEvent) => {
 
     	<div>
       	<textarea
+          placeholder="Note Content"
         	onChange={(event) =>
           	setCreateNote({ ...createNote, content: event.target.value })}
         	required>
