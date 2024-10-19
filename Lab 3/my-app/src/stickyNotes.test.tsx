@@ -131,25 +131,26 @@ describe("StickyNote create", () => {
   const note4 = screen.queryByText("test note 4 title");
   const note5 = screen.queryByText("test note 5 title");
   const note6 = screen.queryByText("test note 6 title");
+  const xButton = screen.getAllByText('x');
   //they should all be in the document
-  expect(note1).toBeInTheDocument();
-  expect(note2).toBeInTheDocument();
-  expect(note3).toBeInTheDocument();
-  expect(note4).toBeInTheDocument();
-  expect(note5).toBeInTheDocument();
-  expect(note6).toBeInTheDocument();
+  expect(note1).toBeInTheDocument(),
+  expect(note2).toBeInTheDocument(),
+  expect(note3).toBeInTheDocument(),
+  expect(note4).toBeInTheDocument(),
+  expect(note5).toBeInTheDocument(),
+  expect(note6).toBeInTheDocument(),
 
 
   //clicking all the x to delete them all
-  const xButton = screen.getAllByText('x');
+ 
   xButton.forEach((element) => {fireEvent.click(element);});
 
   //all dummy notes should be gone since x is pressed for them all
-  expect(note1).not.toBeInTheDocument();
-  expect(note2).not.toBeInTheDocument();
-  expect(note3).not.toBeInTheDocument();
-  expect(note4).not.toBeInTheDocument();
-  expect(note5).not.toBeInTheDocument();
+  expect(note1).not.toBeInTheDocument(),
+  expect(note2).not.toBeInTheDocument(),
+  expect(note3).not.toBeInTheDocument(),
+  expect(note4).not.toBeInTheDocument(),
+  expect(note5).not.toBeInTheDocument(),
   expect(note6).not.toBeInTheDocument();
  });
 
