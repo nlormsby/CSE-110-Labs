@@ -81,9 +81,9 @@ export const StickyNotes = () => {
             <ToggleHeart title = {note.title} list={heartList} listSet={setHeart}/>
              <button onClick = {(event) => {setNotes(notes.filter(sombrero => sombrero !== note))}}>x</button>
            </div>
-           <h2 contentEditable = "true"> {note.title} </h2>
-           <p contentEditable = "true"> {note.content} </p>
-           <p contentEditable = "true"> {note.label} </p>
+           <h2 contentEditable = "true" data-testid="head"> {note.title} </h2>
+           <p contentEditable = "true" data-testid="body"> {note.content} </p>
+           <p contentEditable = "true" data-testid="label"> {note.label} </p>
          </div>
        ))}
      </div>

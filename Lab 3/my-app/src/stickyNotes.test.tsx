@@ -34,10 +34,11 @@ describe("StickyNote", () => {
    expect(newNoteTitle).toBeInTheDocument();
    expect(newNoteContent).toBeInTheDocument();
  });
-
+});
  //Tests
+ describe("StickyNote read", () => {
  //read test
- test("read a note", () => {
+ test("read some note", () => {
   render(<StickyNotes />);
     //to make new notes
    const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
@@ -76,13 +77,50 @@ describe("StickyNote", () => {
 
 
  });
-//  //update test
-//  test("update a note", () => {
-//   render(<StickyNotes />);
+});
+describe("StickyNote update", () => {
+ //update test
+ test("update a note", () => {
+  render(<StickyNotes />);
+
+  //delete all current notes
+  const xButton = screen.getAllByText('x');
+  xButton.forEach((element) => {fireEvent.click(element);});
+
+  //add one new note
+  const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
+  const createNoteContentTextarea = screen.getByPlaceholderText("Note Content");
+  const createNoteButton = screen.getByText("Create Note");
+  fireEvent.change(createNoteTitleInput, { target: { value: "New Note 1" } });
+  fireEvent.change(createNoteContentTextarea, {target: { value: "some stuff 1" },});
+  fireEvent.click(createNoteButton);
+
+  //ID
+  const header = screen.getByTestId("head");
+  const paragraph = screen.getByTestId("body");
+  const L = screen.getByTestId("label");
+
+  //update the note
+  fireEvent.change(header, { target: { textContent: "Better Title" } });
+  fireEvent.change(paragraph, {target: { textContent: "update note body" },});
+  fireEvent.change(L, {target: { textContent: "Work" },});
+
+  // const header2 = screen.getByText("Better Title");
+  // const paragraph2 = screen.getByText("update note body");
+  // const L2 = screen.getByText("Work");
+
+  //should be the same
+  expect("Better Title").toContain(header.textContent);
+  expect("update note body").toContain(paragraph.textContent);
+  expect("Work").toContain(L.textContent);
+
+
   
-//  });
+ });
+});
+describe("StickyNote delete", () => {
  //delete test
- test("delete a note", () => {
+ test("delete all notes", () => {
   render(<StickyNotes />);
 
   //before clicking x
@@ -112,9 +150,6 @@ describe("StickyNote", () => {
   expect(note4).not.toBeInTheDocument();
   expect(note5).not.toBeInTheDocument();
   expect(note6).not.toBeInTheDocument();
-
-
-  
  });
 
 });
