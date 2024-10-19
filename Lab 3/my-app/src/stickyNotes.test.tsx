@@ -36,6 +36,8 @@ describe("StickyNote create", () => {
    expect(newNoteContent).toBeInTheDocument();
  });
 });
+
+
  //Tests
  describe("StickyNote read", () => {
  //read test
@@ -54,12 +56,12 @@ describe("StickyNote create", () => {
     const note5 = screen.queryByText("test note 5 title");
     const note6 = screen.queryByText("test note 6 title");
       //they should be read
-      expect(note1).toBeInTheDocument();
-      expect(note2).toBeInTheDocument();
-      expect(note3).toBeInTheDocument();
-      expect(note4).toBeInTheDocument();
-      expect(note5).toBeInTheDocument();
-      expect(note6).toBeInTheDocument();
+      expect(note1).toBeInTheDocument(),
+      expect(note2).toBeInTheDocument(),
+      expect(note3).toBeInTheDocument(),
+      expect(note4).toBeInTheDocument(),
+      expect(note5).toBeInTheDocument(),
+      expect(note6).toBeInTheDocument(),
     
     //create some new notes
     fireEvent.change(createNoteTitleInput, { target: { value: "New Note 1" } });
@@ -72,7 +74,7 @@ describe("StickyNote create", () => {
     const newNote1 = screen.queryByText("New Note 1");
     const newNote2 = screen.queryByText("some more stuff");
     //they should now show on screen
-    expect(newNote1).toBeInTheDocument();
+    expect(newNote1).toBeInTheDocument(),
     expect(newNote2).toBeInTheDocument();
 
 
