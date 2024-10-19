@@ -37,12 +37,45 @@ describe("StickyNote", () => {
 
  //Tests
  //read test
-//  test("read a note", () => {
-//   render(<StickyNotes />);
+ test("read a note", () => {
+  render(<StickyNotes />);
+    //to make new notes
+   const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
+   const createNoteContentTextarea = screen.getByPlaceholderText("Note Content");
+   const createNoteButton = screen.getByText("Create Note");
+
+    //all the default dummy notes should be on screen
+    const note1 = screen.queryByText("test note 1 title");
+    const note2 = screen.queryByText("test note 2 title");
+    const note3 = screen.queryByText("test note 3 title");
+    const note4 = screen.queryByText("test note 4 title");
+    const note5 = screen.queryByText("test note 5 title");
+    const note6 = screen.queryByText("test note 6 title");
+      //they should be read
+      expect(note1).toBeInTheDocument();
+      expect(note2).toBeInTheDocument();
+      expect(note3).toBeInTheDocument();
+      expect(note4).toBeInTheDocument();
+      expect(note5).toBeInTheDocument();
+      expect(note6).toBeInTheDocument();
+    
+    //create some new notes
+    fireEvent.change(createNoteTitleInput, { target: { value: "New Note 1" } });
+    fireEvent.change(createNoteContentTextarea, {target: { value: "some  stuff 1" },});
+    fireEvent.click(createNoteButton);
+    fireEvent.change(createNoteTitleInput, { target: { value: "New Note 2" } });
+    fireEvent.change(createNoteContentTextarea, {target: { value: "some more stuff" },});
+    fireEvent.click(createNoteButton);
+
+    const newNote1 = screen.queryByText("New Note 1");
+    const newNote2 = screen.queryByText("some more stuff");
+    //they should now show on screen
+    expect(newNote1).toBeInTheDocument();
+    expect(newNote2).toBeInTheDocument();
 
 
 
-//  });
+ });
 //  //update test
 //  test("update a note", () => {
 //   render(<StickyNotes />);
