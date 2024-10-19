@@ -91,7 +91,7 @@ export const StickyNotes = () => {
       <h2>
         List of favorites:
       </h2>
-      <p>
+      <p data-testid="likingList">
         {heartList.map(text => <p>{text}</p>)}
       </p>
      </div>

@@ -1,11 +1,12 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { StickyNotes } from "./stickyNotes";
+
 test("renders create note form", () => {
  render(<StickyNotes />);
  const createNoteButton = screen.getByText("Create Note");
  expect(createNoteButton).toBeInTheDocument();
 });
-describe("StickyNote", () => {
+describe("StickyNote create", () => {
  test("renders create note form", () => {
    render(<StickyNotes />);
 
@@ -77,8 +78,7 @@ describe("StickyNote", () => {
 
 
  });
-});
-describe("StickyNote update", () => {
+
  //update test
  test("update a note", () => {
   render(<StickyNotes />);
@@ -117,8 +117,7 @@ describe("StickyNote update", () => {
 
   
  });
-});
-describe("StickyNote delete", () => {
+
  //delete test
  test("delete all notes", () => {
   render(<StickyNotes />);
@@ -150,6 +149,30 @@ describe("StickyNote delete", () => {
   expect(note4).not.toBeInTheDocument();
   expect(note5).not.toBeInTheDocument();
   expect(note6).not.toBeInTheDocument();
+ });
+
+ test("favorite test", () => {
+  render(<StickyNotes />);
+
+  //delete all current notes
+  const xButton = screen.getAllByText('x');
+  xButton.forEach((element) => {fireEvent.click(element);});
+
+  //add one new note
+  const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
+  const createNoteContentTextarea = screen.getByPlaceholderText("Note Content");
+  const createNoteButton = screen.getByText("Create Note");
+  fireEvent.change(createNoteTitleInput, { target: { value: "New Note 1" } });
+  fireEvent.change(createNoteContentTextarea, {target: { value: "some stuff 1" },});
+  fireEvent.click(createNoteButton);
+
+  const heart = screen.getByTestId("liking");
+  fireEvent.click(heart);
+
+  const liked = screen.getByTestId("likingList");
+
+  expect(liked.innerHTML).toContain("New Note 1");
+
  });
 
 });

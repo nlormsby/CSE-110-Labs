@@ -90,6 +90,6 @@ export function ToggleHeart(burrito: listyThing) {
     };
    
     return (
-        <button onClick={toggleStatus}> {currentStatus} </button>
+        <button onClick={toggleStatus} data-testid="liking"> {currentStatus} </button>
     );
 }
